@@ -1,4 +1,4 @@
-<cfcomponent output="false">
+<cfcomponent>
 	 <cffunction name="init">
 		<cfset this.version = "0.9.4">
 		<cfreturn this>
