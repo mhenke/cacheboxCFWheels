@@ -1,4 +1,4 @@
-Download Cachbox
+Download Cachebox
 http://cachebox.riaforge.org/
 
 Unzip and place in webroot of with the cfwheels application.
