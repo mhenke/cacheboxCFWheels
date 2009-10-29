@@ -4,10 +4,6 @@
 		<cfreturn this>
 	</cffunction>
 	
-	<cffunction name="timeAgoInWords" returntype="string" access="public" output="false">
-		<cfreturn core.timeAgoInWords(argumentCollection=arguments) & " (approximately)">
-	</cffunction>
-	
 	<cffunction name="$getFromCache" returntype="any" access="public" output="false">
 		<cfargument name="key" type="string" required="true">
 		<cfargument name="category" type="string" required="false" default="main">
