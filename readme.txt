@@ -1,7 +1,7 @@
 Download Cachebox
 http://cachebox.riaforge.org/
 
-Unzip and place in webroot of with the cfwheels application.
+Unzip cachebox's zip and place in webroot of with the cfwheels application.
 
 In events/onapplicationstart.cfm place this code:
 <cfscript>
@@ -14,10 +14,13 @@ application.wheels.cache.partial = CreateObject("component","cachebox.cacheboxna
 application.wheels.cache.query = CreateObject("component","cachebox.cacheboxnanny").init(CreateObject("component","cachebox.cacheboxagent").init("wheels_query"));
 </cfscript>
 
+Place caceboxCFWheels plugin's zip in the plugin folder of cfwheels.
+
 Reload your cfwheels application.
 Example: http://localhost/index.cfm?reload=true
 
 You should be good to go now.
 
-For the Admin:
-http://localhost/cachebox/index.cfm
+Cochebox Admin:
+Example: http://localhost/cachebox/index.cfm OR 
+http://localhost/index.cfm?controller=wheels&action=plugins&name=cachebox
