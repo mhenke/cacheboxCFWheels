@@ -1,6 +1,10 @@
 CacheBox provides a one-stop-shop for content caching. 
 http://cachebox.riaforge.org/
 
+requires:
+# CFWheels 0.9.4
+#CacheBox 0.9.9 BETA
+
 Download Cachebox
 Unzip cachebox's zip and place in webroot of with the cfwheels application.
 
