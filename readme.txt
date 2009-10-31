@@ -1,7 +1,20 @@
-Download Cachebox
+CacheBox provides a one-stop-shop for content caching. 
 http://cachebox.riaforge.org/
 
+Download Cachebox
 Unzip cachebox's zip and place in webroot of with the cfwheels application.
+
+Exampe Of Directory Layout:
+webroot
+==index.cfm
+==IsapiRewrite4.ini
+==Application.cfc
+====wheels
+====views
+====models
+====events
+====controllers
+====cachebox
 
 In events/onapplicationstart.cfm place this code:
 <cfscript>
