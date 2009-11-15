@@ -11,6 +11,16 @@ requires:
 
 
 
+Simple Instructions
+1) Download Cachebox from http://cachebox.riaforge.org/
+2) Unzip the Cachebox framework is in your webroot (should be under
+webroot called cachebox)
+3) Place the Cachebox CFWheels plugin zip in the plugins folder
+4) Add the settings listed in the readme.txt to events/
+onapplicationstart.cfm
+5) Reloaded CFWheels (?reload=true) 
+
+Detailed Instructions
 Download Cachebox
 Unzip cachebox's zip and place in webroot of with the cfwheels application.
 
