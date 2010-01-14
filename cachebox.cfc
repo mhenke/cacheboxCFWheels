@@ -1,34 +1,9 @@
 <cfcomponent>
 	 <cffunction name="init">
-		<cfset this.version = "0.9.4">
+		<cfset this.version = "1.0.0">
 		<cfreturn this>
 	</cffunction>
 	
-	<cffunction name="$insertDefaults" returntype="struct" access="public" output="false">
-	<cfargument name="name" type="string" required="true">
-	<cfargument name="input" type="struct" required="true">
-	<cfargument name="reserved" type="string" required="false" default="">
-	<cfscript>
-		var loc = {};
-		if (application.wheels.environment != "production")
-		{
-			if (ListLen(arguments.reserved))
-			{
-				loc.iEnd = ListLen(arguments.reserved);
-				for (loc.i=1; loc.i <= loc.iEnd; loc.i++)
-				{
-					loc.item = ListGetAt(arguments.reserved, loc.i);
-					if (StructKeyExists(arguments.input, loc.item))
-						$throw(type="Wheels.IncorrectArguments", message="The '#loc.item#' argument is not allowed.", extendedInfo="Do not pass in the '#loc.item#' argument. It will be set automatically by Wheels.");
-				}
-			}			
-		}
-				StructAppend(arguments.input, application.wheels.functions[arguments.name], false);
-		loc.returnValue = arguments.input;
-	</cfscript>
-	<cfreturn loc.returnValue>
-</cffunction>
-
 <cffunction name="$addToCache" returntype="void" access="public" output="false">
 	<cfargument name="key" type="string" required="true">
 	<cfargument name="value" type="any" required="true">
@@ -69,13 +44,13 @@
 		var loc = {}; 
 		if (Len(arguments.category)) 
 		{ 
-			loc.returnValue = application.wheels.cache[arguments.category].getHeadCount();
+			loc.returnValue = application.wheels.cache[arguments.category].getSize();
 		} 
 		else 
 		{ 
 			loc.returnValue = 0; 
 			for (loc.key in application.wheels.cache) { 
-				loc.returnValue = loc.returnValue + application.wheels.cache[loc.key].getHeadCount(); 
+				loc.returnValue = loc.returnValue + application.wheels.cache[loc.key].getSize(); 
 			} 
 		} 
 	</cfscript>
