@@ -38,23 +38,17 @@
 	<cfset application.wheels.cache[arguments.category].expire(key) />
 </cffunction>
 
-<cffunction name="$cacheCount" returntype="numeric" access="public" output="false">
-	<cfargument name="category" type="string" required="false" default="">
+<cffunction name="$clearCache" returntype="void" access="public" output="false">
+	<cfargument name="category" type="string" required="false" default="#structKeyList(application.wheels.cache)#">
 	<cfscript>
-		var loc = {}; 
-		if (Len(arguments.category)) 
-		{ 
-			loc.returnValue = application.wheels.cache[arguments.category].getSize();
-		} 
-		else 
-		{ 
-			loc.returnValue = 0; 
-			for (loc.key in application.wheels.cache) { 
-				loc.returnValue = loc.returnValue + application.wheels.cache[loc.key].getSize(); 
-			} 
+		var loc = {};
+		var agent = listToArray(category); 
+		var i = 0; 
+		
+		for (i = 1; i lte arrayLen(agent); i = i + 1) { 
+			application.wheels.cache[agent[i]].expire(); 
 		} 
 	</cfscript>
-	<cfreturn loc.returnValue>
 </cffunction>
 
 <cffunction name="$clearCache" returntype="void" access="public" output="false">
